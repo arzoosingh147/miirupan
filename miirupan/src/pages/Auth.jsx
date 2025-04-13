@@ -1,10 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { motion } from "framer-motion";
+import { AuthContext } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const toggleMode = () => setIsLogin(!isLogin);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email || !password || (!isLogin && (!name || password !== confirmPassword))) {
+      alert("Please fill all fields correctly.");
+      return;
+    }
+
+    const newUser = {
+      name: isLogin ? "Miirupan User" : name,
+      email,
+      avatar: "https://i.pravatar.cc/150?u=" + email,
+      bio: "Freelancer at Miirupan 💼",
+      posts: [],
+    };
+
+    setUser(newUser);
+    navigate("/UserDashboard");
+  };
 
   return (
     <div className="min-h-screen bg-[#F7CB46] text-white flex items-center justify-center px-4 py-12">
@@ -18,14 +46,16 @@ const Auth = () => {
           {isLogin ? " Login" : " Register"}
         </h2>
 
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
           {!isLogin && (
             <div>
               <label className="text-sm font-semibold text-black">Full Name</label>
               <input
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="John Doe"
-                className="w-full mt-1 p-3 rounded-lg bg-white border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
+                className="w-full mt-1 p-3 rounded-lg bg-white text-black border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
               />
             </div>
           )}
@@ -34,8 +64,10 @@ const Auth = () => {
             <label className="text-sm font-semibold text-black">Email</label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
-              className="w-full mt-1 p-3 rounded-lg bg-white border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
+              className="w-full mt-1 p-3 rounded-lg bg-white text-black border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
             />
           </div>
 
@@ -43,8 +75,10 @@ const Auth = () => {
             <label className="text-sm font-semibold text-black">Password</label>
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               placeholder="********"
-              className="w-full mt-1 p-3 rounded-lg bg-white border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
+              className="w-full mt-1 p-3 rounded-lg bg-white text-black border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
             />
           </div>
 
@@ -53,15 +87,17 @@ const Auth = () => {
               <label className="text-sm font-semibold text-black">Confirm Password</label>
               <input
                 type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="********"
-                className="w-full mt-1 p-3 rounded-lg bg-white border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
+                className="w-full mt-1 p-3 rounded-lg bg-white text-black border-4 border-black focus:ring-2 focus:ring-[#F196E4]"
               />
             </div>
           )}
 
           <button
             type="submit"
-            className="w-full py-3 bg-[#FF8000] hover:bg-[#FFD9B3] rounded-lg font-semibold transition"
+            className="w-full py-3 bg-[#FF8000] hover:bg-[#FFD9B3] text-black rounded-lg font-semibold transition"
           >
             {isLogin ? "Login" : "Register"}
           </button>

@@ -5,11 +5,14 @@ import "./index.css";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { PostProvider } from "./context/PostContext";
+import { AuthProvider } from "./context/AuthContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <PostProvider>
-      <App />
+    <AuthProvider>
+    <App />
+  </AuthProvider>
     </PostProvider>
   </React.StrictMode>
 );
