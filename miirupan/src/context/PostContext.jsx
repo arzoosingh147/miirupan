@@ -38,7 +38,7 @@ export const PostProvider = ({ children }) => {
     }
   ]);
 
-  // ➕ Add new post
+  // Add new post
   const addPost = (title, description, tag = "community", user) => {
     const newPost = {
       id: uuidv4(),
@@ -55,7 +55,7 @@ export const PostProvider = ({ children }) => {
   };
   
 
-  // ⬆⬇ Update vote count
+  // Update vote count
   const updateVotes = (postId, type) => {
     const updatedPosts = posts.map((post) => {
       if (post.id === postId) {
@@ -69,7 +69,7 @@ export const PostProvider = ({ children }) => {
     setPosts(updatedPosts);
   };
 
-  // ➕ Add a comment
+  // Add a comment
   const addComment = (postId, text) => {
     const updatedPosts = posts.map((post) => {
       if (post.id === postId) {
@@ -84,7 +84,7 @@ export const PostProvider = ({ children }) => {
     setPosts(updatedPosts);
   };
 
-  // ➕ Add a reply to a comment
+  // Add a reply to a comment
   const addReply = (postId, commentId, text) => {
     const updatedPosts = posts.map((post) => {
       if (post.id === postId) {
@@ -102,7 +102,7 @@ export const PostProvider = ({ children }) => {
     setPosts(updatedPosts);
   };
 
-  // ✏️ Optional: Edit a post
+  // Optional: Edit a post
   const editPost = (postId, updatedFields) => {
     const updatedPosts = posts.map((post) =>
       post.id === postId ? { ...post, ...updatedFields } : post
@@ -110,7 +110,7 @@ export const PostProvider = ({ children }) => {
     setPosts(updatedPosts);
   };
 
-  // 🗑️ Optional: Delete a post
+  // Optional: Delete a post
   const deletePost = (postId) => {
     setPosts(posts.filter((post) => post.id !== postId));
   };

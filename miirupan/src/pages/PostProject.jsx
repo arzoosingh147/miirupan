@@ -23,7 +23,7 @@ const PostProject = () => {
       title,
       description,
       category,
-      skills, // optional but useful for filtering
+      skills, 
       authorEmail: user?.email,
       createdAt: new Date().toISOString()
     };

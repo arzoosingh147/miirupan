@@ -44,7 +44,7 @@ const FindWork = () => {
     const formattedUserProjects = storedProjects.map((p) => ({
       ...p,
       contact: `mailto:${p.authorEmail}`,
-      skills: p.skills || "", // fallback if not added
+      skills: p.skills || "", 
     }));
 
     const all = [...staticProjects, ...formattedUserProjects];

@@ -12,7 +12,7 @@ const Community = () => {
   const [replyInput, setReplyInput] = useState({});
   const [showReplyBox, setShowReplyBox] = useState({});
 
-  // 🆕 Likes and Saves States
+  // Likes and Saves States
   const [likes, setLikes] = useState({});
   const [saved, setSaved] = useState({});
 
@@ -40,7 +40,7 @@ const Community = () => {
     setShowReplyBox({ ...showReplyBox, [`${postId}-${commentIndex}`]: false });
   };
 
-  // 🆕 Like & Save Handlers
+  // Like & Save Handlers
   const toggleLike = (postId) => {
     setLikes((prev) => ({ ...prev, [postId]: !prev[postId] }));
   };
@@ -165,19 +165,19 @@ const Community = () => {
                   </button>
                 </div>
 
-                {/* 🆕 Like & Save Buttons */}
+                {/* Like & Save Buttons */}
                 <div className="flex space-x-3">
                   <button
                     onClick={() => toggleLike(post.id)}
                     className={`text-sm font-semibold ${likes[post.id] ? "text-pink-600" : "text-gray-500"}`}
                   >
-                    ❤️ {likes[post.id] ? "Liked" : "Like"}
+                    {likes[post.id] ? "Liked" : "Like"}
                   </button>
                   <button
                     onClick={() => toggleSave(post.id)}
                     className={`text-sm font-semibold ${saved[post.id] ? "text-yellow-600" : "text-gray-500"}`}
                   >
-                    🔖 {saved[post.id] ? "Saved" : "Save"}
+                    {saved[post.id] ? "Saved" : "Save"}
                   </button>
                 </div>
               </div>

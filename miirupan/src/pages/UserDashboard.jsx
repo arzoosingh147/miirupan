@@ -11,7 +11,6 @@ const UserDashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Keep user session alive with localStorage
     const storedUser = localStorage.getItem("miirupan-user");
     if (!user && storedUser) {
       setUser(JSON.parse(storedUser));
@@ -34,7 +33,7 @@ const UserDashboard = () => {
     <div className="p-6 bg-[#F7CB46] min-h-screen">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded-xl shadow-lg border-4 border-black">
         <h2 className="text-3xl font-bold text-black mb-4">
-          Welcome, {user.name} 👋
+          Welcome, {user.name} 
         </h2>
 
         <p className="mb-6 text-gray-700">Here's a summary of your activity:</p>
