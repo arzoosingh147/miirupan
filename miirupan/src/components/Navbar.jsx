@@ -20,6 +20,7 @@ export default function Navbar() {
         <li><Link to="/find-work">Find Work</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/userdashboard">Dashboard</Link></li>
         <li><Link to="/auth" className="block bg-white hover:bg-pink text-black font-bold text-center px-4 py-2 rounded-lg">Log in</Link></li>
       </ul>
 
@@ -33,10 +34,9 @@ export default function Navbar() {
         <ul className="absolute top-16 left-0 w-full bg-black flex flex-col items-center gap-4 py-6 shadow-md text-white font-medium md:hidden">
           <li><Link to="/" onClick={closeMenu}>Home</Link></li>
           <li><Link to="/find-work" onClick={closeMenu}>Find Work</Link></li>
-          <li><Link to="/post-project" onClick={closeMenu}>Post a Project</Link></li>
           <li><Link to="/about" onClick={closeMenu}>About</Link></li>
           <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
-          <li><Link to="/projects" onClick={closeMenu}>Projects</Link></li>
+          <li><Link to="/userdashboard">Dashboard</Link></li>
           <li><Link to="/auth" className="block bg-white hover:bg-pink-500 text-black font-bold text-center px-4 py-2 rounded-lg" onClick={closeMenu}>Log in</Link></li>
         </ul>
       )}

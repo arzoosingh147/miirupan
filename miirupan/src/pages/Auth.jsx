@@ -31,7 +31,7 @@ const Auth = () => {
     };
 
     setUser(newUser);
-    navigate("/UserDashboard");
+    navigate("/userdashboard");
   };
 
   return (

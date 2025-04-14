@@ -39,12 +39,13 @@ export const PostProvider = ({ children }) => {
   ]);
 
   // ➕ Add new post
-  const addPost = (title, description, tag = "community") => {
+  const addPost = (title, description, tag = "community", user) => {
     const newPost = {
       id: uuidv4(),
       title,
       description,
       tag,
+      authorEmail: user.email, // add this
       replies: [],
       comments: [],
       votes: { up: 0, down: 0 },
@@ -52,6 +53,7 @@ export const PostProvider = ({ children }) => {
     };
     setPosts((prev) => [newPost, ...prev]);
   };
+  
 
   // ⬆⬇ Update vote count
   const updateVotes = (postId, type) => {

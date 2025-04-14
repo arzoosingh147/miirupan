@@ -11,7 +11,6 @@ import Community from "./pages/Community";
 import CreatePost from "./pages/CreatePost"; 
 import PostDetails from "./pages/PostDetails";
 import UserDashboard from "./pages/UserDashboard";
-import DashboardLayout from "./pages/DashboardLayout";
 import EditProfile from './pages/EditProfile';
 
 function App() {
@@ -28,8 +27,7 @@ function App() {
         <Route path="/community" element={<Community />} />
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/post/:id" element={<PostDetails />} />
-        <Route path="/dashboard" element={<UserDashboard />} />
-        <Route path="/dashboard" element={<DashboardLayout />}/>
+        <Route path="/userdashboard" element={<UserDashboard />} />
         <Route path="/edit-profile" element={<EditProfile />} />
       </Routes>
       <Footer />

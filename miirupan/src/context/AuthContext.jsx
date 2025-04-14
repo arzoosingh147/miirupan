@@ -1,14 +1,13 @@
+// context/AuthContext.jsx
 import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // initially null
-
-  const logout = () => setUser(null);
+  const [user, setUser] = useState(null);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, logout }}>
+    <AuthContext.Provider value={{ user, setUser }}>
       {children}
     </AuthContext.Provider>
   );
