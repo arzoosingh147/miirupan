@@ -26,7 +26,7 @@ const UserDashboard = () => {
   const userPosts = posts.filter(post => post.authorEmail === user?.email);
 
   if (!user) {
-    return <p className="text-center py-10">Please log in to view your dashboard.</p>;
+    return <p className="text-center font-bold bg-[#F7CB46] pt-40 pb-40">Please log in to view your dashboard.</p>;
   }
 
   return (
@@ -45,7 +45,7 @@ const UserDashboard = () => {
               <div
                 key={post.id}
                 onClick={() => navigate(`/post/${post.id}`)}
-                className="p-4 border-2 border-black rounded-xl mb-2 cursor-pointer hover:bg-gray-100 transition"
+                className="p-4 border-4 border-black rounded-xl mb-2 cursor-pointer hover:bg-gray-100 transition"
               >
                 <h4 className="font-bold text-black">{post.title}</h4>
                 <p className="text-gray-600">{post.description}</p>
@@ -62,7 +62,7 @@ const UserDashboard = () => {
             userProjects.map((project, index) => (
               <div
                 key={index}
-                className="p-4 border-2 border-black rounded-xl mb-2"
+                className="p-4 border-4 border-black rounded-xl mb-2"
               >
                 <h4 className="font-bold text-black">{project.title}</h4>
                 <p className="text-gray-600">{project.description}</p>
