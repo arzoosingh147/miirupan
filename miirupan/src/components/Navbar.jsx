@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,10 +10,12 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <nav className="bg-black shadow-md px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-      <Link to="/" className="text-xl font-bold text-white">
-        miirupan
+    <nav className="bg-black shadow-md px-4 py-2 flex justify-between items-center sticky top-0 z-50">
+      <Link to="/" className="flex items-center gap-2">
+        <img src={logo} alt="Miirupan Logo" className="w-16 h-16 object-contain" />
+        <span className="text-xl font-bold text-white hidden sm:inline"></span>
       </Link>
+
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-6 text-white font-medium items-center">
